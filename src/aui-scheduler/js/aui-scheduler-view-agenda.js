@@ -169,8 +169,8 @@ var SchedulerAgendaView = A.Component.create({
                 }
 
                 if (DateMath.isDayOverlap(startDate, endDate)) {
-                    startDateMask += ', %b %e';
-                    endDateMask += ', %b %e';
+                    startDateMask += ', %e %b';
+                    endDateMask += ', %e %b';
                 }
 
                 startDateFormatter = _formatter.call(instance, startDateMask);
@@ -220,7 +220,7 @@ var SchedulerAgendaView = A.Component.create({
          */
         headerExtraDateFormatter: {
             validator: isFunction,
-            value: _formatter('%B %e')
+            value: _formatter('%e %B')
         },
 
         /**
@@ -253,7 +253,7 @@ var SchedulerAgendaView = A.Component.create({
          */
         infoLabelSmallDateFormatter: {
             validator: isFunction,
-            value: _formatter('%B %d, %Y')
+            value: _formatter('%d %B, %Y')
         },
 
         /**
