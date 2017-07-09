@@ -4,6 +4,9 @@
 
 AlloyUI is a framework built on top of [YUI3](http://yuilibrary.com) (JavaScript) that uses [Bootstrap](http://liferay.github.io/alloy-bootstrap/) (HTML/CSS) to provide a simple API for building high scalable applications.
 
+Этот бранч содержит версию с изменениями локализации, например локализация дат для компонент calendar & scheduler (по умолчанию используются форматы дат, соотвествующие русскому языку).
+Данная версия требует измененную версию YUI3 (бранч https://github.com/liferay-re/yui3/tree/patched-v3.11.0-RE) - смотрите подробней инструкцию по сборке
+
 * [Official Website](http://alloyui.com/)
 * [Examples](http://alloyui.com/examples/)
 * [Tutorials](http://alloyui.com/tutorials/)
@@ -31,138 +34,145 @@ grunt command --option value
 
 2. Install global dependencies:
 
-    ```
+```
 [sudo] npm install -g grunt-cli shifter yogi yuidocjs phantomjs
-    ```
+```
 
 3. Install local dependencies:
 
-    ```
+```
 npm install
-    ```
+```
 
 4. Initialize dependencies:
 
-    ```
+```
 grunt init
-    ```
+```
+
+5. ВАЖНО! Перед сборкой необходимо переключить YUI3 на использование нужного бранча. Для этого в папке yui3 (которая находится на том же уровне что и исходники alloy-ui) добавить новый remote и сделать переключение на бранч https://github.com/liferay-re/yui3/tree/patched-v3.11.0-RE
+
+```
+git remote add liferay-re https://github.com/liferay-re/yui3.git
+git checkout liferay-re/patched-v3.11.0-RE
+```
 
 ### Build
 
 * Build YUI and AlloyUI:
 
-    ```
+```
 grunt build
-    ```
+```
 
 * Build only YUI:
 
-    ```
+```
 grunt build:yui
-    ```
+```
 
 * Build only AlloyUI:
 
-    ```
+```
 grunt build:aui
-    ```
+```
 
 * Build single AlloyUI module:
 
-    ```
+```
 grunt build:aui --src src/aui-module-name
-    ```
+```
 
 * Build and import Bootstrap's CSS:
 
-    ```
+```
 grunt bootstrap
-    ```
+```
 
 * Build AlloyUI and import Bootstrap's CSS:
 
-    ```
+```
 grunt all
-    ```
+```
 
 ### Watch
 
 * Watch and build for any changes:
 
-    ```
+```
 grunt watch
-    ```
+```
 
 * Watch and build for any single module changes:
 
-    ```
+```
 grunt watch --src src/aui-module-name
-    ```
+```
 
 ### Create
 
 * Create a new module under `src/` folder:
 
-    ```
+```
 grunt create
-    ```
+```
 
 ### Format
 
 * Format JavaScript source code:
 
-    ```
+```
 grunt format
-    ```
+```
 
 ### Release
 
 * Generate a zip file:
 
-    ```
+```
 grunt zip
-    ```
+```
 
 * Build modules and generate a release zip file:
 
-    ```
+```
 grunt release
-    ```
+```
 
 * Build modules optimized for CDN and generate a release zip file:
 
-    ```
+```
 grunt release-cdn
-    ```
+```
 
 ### Test
 
 * Run unit tests:
 
-    ```
+```
 grunt test
-    ```
+```
 
 ### API Docs
 
 * Build docs locally:
 
-    ```
+```
 grunt api-build
-    ```
+```
 
 * Build docs locally and deploy it to alloyui.com:
 
-    ```
+```
 grunt api-deploy
-    ```
+```
 
 
 * Run docs locally and watch for any changes:
 
-    ```
+```
 grunt api-watch
-    ```
+```
 
 ## Discussion
 
