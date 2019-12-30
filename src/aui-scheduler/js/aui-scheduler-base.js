@@ -634,8 +634,8 @@ var SchedulerBase = A.Component.create({
 
                 return A.DataType.Date.format(
                     date, {
-                        format: '%d %B, %Y',
-                        locale: instance.get(LOCALE)
+                        format: '%d %B, %Y Am i changing anything?',
+                        locale: instance.get('locale')
                     }
                 );
             },
