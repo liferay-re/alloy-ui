@@ -686,13 +686,17 @@ var FormValidator = A.Component.create({
                 field = boundingBox.one('.' + CSS_ERROR_FIELD);
 
             if (field) {
+                field = instance.findFieldContainer(field);
+
                 if (instance.get('selectText')) {
                     field.selectText();
                 }
 
                 field.focus();
 
-                field.scrollIntoView();
+                field.scrollIntoView(false);
+
+                window.scrollBy(0, field.getDOM().scrollHeight);
             }
         },
 
@@ -1324,7 +1328,12 @@ var FormValidator = A.Component.create({
             var skipValidationTargetSelector = instance.get('skipValidationTargetSelector');
 
             if (!event.relatedTarget || !event.relatedTarget.getDOMNode().matches(skipValidationTargetSelector)) {
-                instance.validateField(event.target);
+                setTimeout(
+                    function() {
+                        instance.validateField(event.target);
+                    },
+                    300
+                );
             }
         },
 

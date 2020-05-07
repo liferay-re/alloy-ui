@@ -477,6 +477,21 @@ A.mix(A.DataType.DateMath, {
     },
 
     /**
+     * Determines whether a given date is inclusively between two other
+     * dates on the calendar.
+     *
+     * @method betweenInclusive
+     * @param {Date} date The date to check for
+     * @param {Date} dateBegin The start of the range
+     * @param {Date} dateEnd The end of the range
+     * @return {Boolean} true if the date occurs between the dates
+     * (including the two dates); false if not.
+     */
+    betweenInclusive: function(date, dateBegin, dateEnd) {
+        return (this.between(date, dateBegin, dateEnd) || this.compare(date, dateBegin) || this.compare(date, dateEnd));
+    },
+
+    /**
      * Retrieves a JavaScript Date object representing January 1 of any given
      * year.
      *
@@ -941,6 +956,29 @@ A.mix(A.DataType.DateMath, {
      */
     getDaysInMonth: function(year, month) {
         return this.findMonthEnd(this.getDate(year, month)).getDate();
+    },
+
+    /**
+     * Gets the number of weeks in given calendar year.
+     *
+     * @method getWeeksInYear
+     * @param {Number} year The calendar year for which to retrieve number of
+     *      weeks from.
+     * @param {Number} startOfWeek The index for the first day of the week, 0 =
+     *     Sun, 1 = Mon ... 6 = Sat (defaults to 0)
+     * @return {Number} The number of weeks for the given year
+     */
+    getWeeksInYear: function(year, startOfWeek) {
+        var date = this.getDate(year, 11, 31);
+        var weekNumber = this.getWeekNumber(date, startOfWeek, this.WEEK_ONE_JAN_DATE);
+
+        if (weekNumber === 1) {
+            date = this.getDate(year, 11, 24);
+
+            weekNumber = this.getWeekNumber(date, startOfWeek, this.WEEK_ONE_JAN_DATE);
+        }
+
+        return weekNumber;
     },
 
     /**

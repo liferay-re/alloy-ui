@@ -1,6 +1,6 @@
 {
     "alloycore": [ "aui-base-core" ],
     "alloyregex": "(aui|yui(",
-    "yuiversion": "LRE-503",
-    "version": "LRE-503"
+    "yuiversion": "LRE-949",
+    "version": "LRE-949"
 }
