@@ -333,7 +333,7 @@ var SchedulerDayView = A.Component.create({
 
                 return A.DataType.Date.format(
                     date, {
-                        format: '%A, %d %B, %Y Am i changing anything?',
+                        format: '%A, %d %B, %Y',
                         locale: scheduler.get('locale')
                     }
                 );

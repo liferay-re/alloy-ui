@@ -82,7 +82,7 @@ var SchedulerMonthView = A.Component.create({
 
                 return A.DataType.Date.format(
                     date, {
-                        format: '%O %Y Am i changing anything?',
+                        format: '%O %Y',
                         locale: scheduler.get('locale')
                     }
                 );
