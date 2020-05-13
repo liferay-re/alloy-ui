@@ -1,6 +1,6 @@
 {
   "name": "alloy-ui",
-  "version": "LRE-949",
+  "version": "3.1.0-deprecated.74-re",
   "homepage": "http://alloyui.com",
   "authors": [
     "Eduardo Lundgren <eduardo.lundgren@liferay.com>"
@@ -15,7 +15,7 @@
   ],
   "license": "BSD",
   "dependencies": {
-    "yui3": "adiukov/yui3#LRE-949"
+    "yui3": "liferay-re/yui3#patched-v3.18.1_re"
   },
   "devDependencies": {
     "ace-builds": "1.4.6",
