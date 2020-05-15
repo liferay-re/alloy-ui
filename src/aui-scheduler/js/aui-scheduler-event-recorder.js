@@ -102,7 +102,7 @@ var SchedulerEventRecorder = A.Component.create({
          */
         dateFormat: {
             validator: isString,
-            value: '%a, %B %d'
+            value: '%a, %d %B'
         },
 
         /**
